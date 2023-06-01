@@ -13,9 +13,21 @@ class VentanaPrincipal(QMainWindow):
         super().__init__()
         uic.loadUi('gui_main.ui', self)
         self.pushButton_cargar_img.clicked.connect(self.seleccionar_archivo)
-        self.figure = plt.figure()
-        self.canvas = FigureCanvas(self.figure)
-        self.verticalLayout_img_original.addWidget(self.canvas)
+        
+    def mostrar_img(self, elemento, img):
+        figure = plt.figure()
+        plot = figure.add_subplot(111)
+        plot.imshow(img)
+        plot.axis('off')
+        canvas = FigureCanvas(figure)
+        canvas.draw()
+        elemento.addWidget(canvas)
+
+    def leer_img(self, ruta):
+        img = cv2.imread(ruta)
+        img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+        self.mostrar_img(self.verticalLayout_img_original, img_rgb)
+        self.mostrar_img(self.verticalLayout_img_resultante, img_rgb)
 
     def seleccionar_archivo(self):
         archivo = QFileDialog()
@@ -25,15 +37,6 @@ class VentanaPrincipal(QMainWindow):
             ruta = archivo.selectedFiles()
             print(ruta[0])
             self.leer_img(ruta[0])
-
-    def leer_img(self, ruta):
-        img = cv2.imread(ruta)
-        img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-        self.figure.clear()
-        ax = self.figure.add_subplot(111)
-        ax.imshow(img_rgb)
-        ax.axis('off')
-        self.canvas.draw()
 
 app = QApplication([])
 ventana = VentanaPrincipal()
