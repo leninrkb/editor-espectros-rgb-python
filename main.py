@@ -1,9 +1,9 @@
 from PyQt5.QtWidgets import QApplication, QMainWindow
 from PyQt5 import uic
 from PyQt5.QtWidgets import QFileDialog
-import cv2
+import cv2 #opencv
 import numpy as np
-import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt #plots
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 
 class VentanaPrincipal(QMainWindow): 
@@ -13,11 +13,13 @@ class VentanaPrincipal(QMainWindow):
         self.modificado_canal_r = False
         self.modificado_canal_g = False
         self.modificado_canal_b = False
+
         self.pushButton_aplicar_cambios.setEnabled(False) 
         self.pushButton_guardar_resultante.setEnabled(False) 
         self.pushButton_aplicar_cambios.clicked.connect(self.aplicar_cambios) 
         self.pushButton_cargar_img.clicked.connect(self.seleccionar_archivo)
         self.pushButton_guardar_resultante.clicked.connect(self.guardar_resultante)
+        
         self.horizontalSlider_valor_r.valueChanged.connect(self.nuevo_valor_slider_r)
         self.horizontalSlider_valor_g.valueChanged.connect(self.nuevo_valor_slider_g)
         self.horizontalSlider_valor_b.valueChanged.connect(self.nuevo_valor_slider_b)
@@ -95,7 +97,6 @@ class VentanaPrincipal(QMainWindow):
         figure = plt.figure()
         plot = figure.add_subplot(111)
         plot.hist(canal.ravel(), bins=256, color=color_grafico, alpha=0.6)
-        plot.set_xlabel('Valor de Píxel')
         canvas = FigureCanvas(figure)
         canvas.draw()
         index = elemento.count()
