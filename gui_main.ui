@@ -65,6 +65,15 @@
                <property name="frameShadow">
                 <enum>QFrame::Raised</enum>
                </property>
+               <layout class="QVBoxLayout" name="verticalLayout_14">
+                <item>
+                 <layout class="QVBoxLayout" name="verticalLayout_img_original">
+                  <property name="spacing">
+                   <number>7</number>
+                  </property>
+                 </layout>
+                </item>
+               </layout>
               </widget>
              </item>
              <item>
@@ -85,6 +94,11 @@
             <property name="frameShadow">
              <enum>QFrame::Raised</enum>
             </property>
+            <layout class="QVBoxLayout" name="verticalLayout_15">
+             <item>
+              <layout class="QVBoxLayout" name="verticalLayout_img_resultante"/>
+             </item>
+            </layout>
            </widget>
           </item>
          </layout>
