@@ -98,6 +98,13 @@
              <item>
               <layout class="QVBoxLayout" name="verticalLayout_img_resultante"/>
              </item>
+             <item>
+              <widget class="QPushButton" name="pushButton_aplicar_cambios">
+               <property name="text">
+                <string>Aplicar cambios</string>
+               </property>
+              </widget>
+             </item>
             </layout>
            </widget>
           </item>
@@ -146,6 +153,11 @@
                   <property name="frameShadow">
                    <enum>QFrame::Raised</enum>
                   </property>
+                  <layout class="QVBoxLayout" name="verticalLayout_16">
+                   <item>
+                    <layout class="QVBoxLayout" name="verticalLayout_canal_r"/>
+                   </item>
+                  </layout>
                  </widget>
                 </item>
                </layout>
@@ -159,6 +171,11 @@
                <property name="frameShadow">
                 <enum>QFrame::Raised</enum>
                </property>
+               <layout class="QVBoxLayout" name="verticalLayout_18">
+                <item>
+                 <layout class="QVBoxLayout" name="verticalLayout_histograma_r"/>
+                </item>
+               </layout>
               </widget>
              </item>
              <item>
@@ -216,6 +233,11 @@
                   <property name="frameShadow">
                    <enum>QFrame::Raised</enum>
                   </property>
+                  <layout class="QVBoxLayout" name="verticalLayout_17">
+                   <item>
+                    <layout class="QVBoxLayout" name="verticalLayout_canal_g"/>
+                   </item>
+                  </layout>
                  </widget>
                 </item>
                </layout>
@@ -229,6 +251,11 @@
                <property name="frameShadow">
                 <enum>QFrame::Raised</enum>
                </property>
+               <layout class="QVBoxLayout" name="verticalLayout_20">
+                <item>
+                 <layout class="QVBoxLayout" name="verticalLayout_histograma_g"/>
+                </item>
+               </layout>
               </widget>
              </item>
              <item>
@@ -286,6 +313,11 @@
                   <property name="frameShadow">
                    <enum>QFrame::Raised</enum>
                   </property>
+                  <layout class="QVBoxLayout" name="verticalLayout_19">
+                   <item>
+                    <layout class="QVBoxLayout" name="verticalLayout_canal_b"/>
+                   </item>
+                  </layout>
                  </widget>
                 </item>
                </layout>
@@ -299,6 +331,11 @@
                <property name="frameShadow">
                 <enum>QFrame::Raised</enum>
                </property>
+               <layout class="QVBoxLayout" name="verticalLayout_22">
+                <item>
+                 <layout class="QVBoxLayout" name="verticalLayout_histograma_b"/>
+                </item>
+               </layout>
               </widget>
              </item>
              <item>
