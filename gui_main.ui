@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>Histograma del espectro RGB</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../../../Pictures/MEGA_imagenes/iconos apps/image-spectre.jpeg</normaloff>../../../Pictures/MEGA_imagenes/iconos apps/image-spectre.jpeg</iconset>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
     <property name="leftMargin">
@@ -385,6 +389,9 @@
                 </property>
                 <item>
                  <widget class="QSlider" name="horizontalSlider_valor_r">
+                  <property name="minimum">
+                   <number>0</number>
+                  </property>
                   <property name="maximum">
                    <number>255</number>
                   </property>

@@ -1,8 +1,5 @@
 from PyQt5.QtWidgets import QApplication, QMainWindow
 from PyQt5 import uic
-# from PyQt5.QtGui import QImage, QPixmap
-# from PyQt5.QtCore import Qt
-# from PyQt5.QtWidgets import QLabel, QVBoxLayout, QWidget
 from PyQt5.QtWidgets import QFileDialog
 import cv2
 import numpy as np
@@ -27,7 +24,14 @@ class VentanaPrincipal(QMainWindow):
 
     
     def guardar_resultante(self):
-        cv2.imwrite('img_resultante.jpg',self.nueva_imagen)
+        ruta = self.lineEdit_ruta_guardar.text()
+        img = cv2.cvtColor(self.nueva_imagen, cv2.COLOR_BGR2RGB)
+        if ruta == '':
+            cv2.imwrite('img_resultante.jpg',img)
+        else:     
+            ruta = ruta + '/img_resultante.jpg'
+            cv2.imwrite(ruta,img)
+
 
     def nuevo_valor_slider_r(self, valor): 
         self.nuevo_canal_r = np.clip(self.canal_r + valor, 0, 255)
