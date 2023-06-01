@@ -57,11 +57,11 @@ class VentanaPrincipal(QMainWindow):
             self.mostrar_histograma(self.verticalLayout_histograma_r, self.nuevo_canal_r,'red')
             print('hist r')
         if self.modificado_canal_g:
-            self.mostrar_img(self.verticalLayout_canal_r, self.nuevo_canal_g)
+            self.mostrar_img(self.verticalLayout_canal_g, self.nuevo_canal_g)
             self.mostrar_histograma(self.verticalLayout_histograma_g, self.nuevo_canal_g,'green')
             print('hist g')
         if self.modificado_canal_b:
-            self.mostrar_img(self.verticalLayout_canal_r, self.nuevo_canal_b)
+            self.mostrar_img(self.verticalLayout_canal_b, self.nuevo_canal_b)
             self.mostrar_histograma(self.verticalLayout_histograma_b, self.nuevo_canal_b,'blue')
             print('hist b')
         self.mostrar_resultante()
