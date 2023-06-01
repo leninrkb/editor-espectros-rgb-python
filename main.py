@@ -17,13 +17,18 @@ class VentanaPrincipal(QMainWindow):
         self.modificado_canal_g = False
         self.modificado_canal_b = False
         self.pushButton_aplicar_cambios.setEnabled(False) 
+        self.pushButton_guardar_resultante.setEnabled(False) 
         self.pushButton_aplicar_cambios.clicked.connect(self.aplicar_cambios) 
         self.pushButton_cargar_img.clicked.connect(self.seleccionar_archivo)
+        self.pushButton_guardar_resultante.clicked.connect(self.guardar_resultante)
         self.horizontalSlider_valor_r.valueChanged.connect(self.nuevo_valor_slider_r)
         self.horizontalSlider_valor_g.valueChanged.connect(self.nuevo_valor_slider_g)
         self.horizontalSlider_valor_b.valueChanged.connect(self.nuevo_valor_slider_b)
 
     
+    def guardar_resultante(self):
+        cv2.imwrite('img_resultante.jpg',self.nueva_imagen)
+
     def nuevo_valor_slider_r(self, valor): 
         self.nuevo_canal_r = np.clip(self.canal_r + valor, 0, 255)
         self.modificado_canal_r = True
@@ -43,8 +48,8 @@ class VentanaPrincipal(QMainWindow):
         print('cambio b')
 
     def mostrar_resultante(self):
-        nueva_imagen = cv2.merge((self.nuevo_canal_r, self.nuevo_canal_g, self.nuevo_canal_b))
-        self.mostrar_img(self.verticalLayout_img_resultante, nueva_imagen)
+        self.nueva_imagen = cv2.merge((self.nuevo_canal_r, self.nuevo_canal_g, self.nuevo_canal_b))
+        self.mostrar_img(self.verticalLayout_img_resultante, self.nueva_imagen)
 
     def aplicar_cambios(self):
         if self.modificado_canal_r:
@@ -61,6 +66,7 @@ class VentanaPrincipal(QMainWindow):
             print('hist b')
         self.mostrar_resultante()
         self.pushButton_aplicar_cambios.setEnabled(False)
+        self.pushButton_guardar_resultante.setEnabled(True) 
         self.modificado_canal_r = False
         self.modificado_canal_g = False
         self.modificado_canal_b = False
