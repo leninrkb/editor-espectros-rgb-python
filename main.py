@@ -129,6 +129,20 @@ class VentanaPrincipal(QMainWindow):
         self.mostrar_histograma(self.verticalLayout_histograma_b, self.canal_b, 'blue')
         # muestro resultante
         self.mostrar_img(self.verticalLayout_img_resultante, img_rgb)
+        self.reset_sliders()
+
+    def reset_sliders(self):
+        self.horizontalSlider_valor_r.valueChanged.disconnect(self.nuevo_valor_slider_r)
+        self.horizontalSlider_valor_g.valueChanged.disconnect(self.nuevo_valor_slider_g)
+        self.horizontalSlider_valor_b.valueChanged.disconnect(self.nuevo_valor_slider_b)
+
+        self.horizontalSlider_valor_r.setValue(0)
+        self.horizontalSlider_valor_g.setValue(0)
+        self.horizontalSlider_valor_b.setValue(0)
+
+        self.horizontalSlider_valor_r.valueChanged.connect(self.nuevo_valor_slider_r)
+        self.horizontalSlider_valor_g.valueChanged.connect(self.nuevo_valor_slider_g)
+        self.horizontalSlider_valor_b.valueChanged.connect(self.nuevo_valor_slider_b)
 
     def seleccionar_archivo(self):
         archivo = QFileDialog()
